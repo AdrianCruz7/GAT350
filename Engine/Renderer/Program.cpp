@@ -46,6 +46,8 @@ namespace neu
 			AddShader(fshader);
 		}
 
+		Link();
+
 		return true;
 	}
 
@@ -132,7 +134,7 @@ namespace neu
 		GLint uniform = GetUniform(name);
 		if (uniform != -1)
 		{
-			glUniform1i(uniform, value);
+			glUniform1ui(uniform, value);
 		}
 	}
 

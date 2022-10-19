@@ -8,6 +8,9 @@ namespace neu
 	const uint32_t button_middle = 1;
 	const uint32_t button_right = 2;
 
+	const uint32_t page_up = SDL_SCANCODE_PAGEUP;
+	const uint32_t page_down = SDL_SCANCODE_PAGEDOWN;
+
 	const uint32_t key_space = SDL_SCANCODE_SPACE;
 	const uint32_t key_escape = SDL_SCANCODE_ESCAPE;
 	const uint32_t key_enter = SDL_SCANCODE_RETURN;
