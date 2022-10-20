@@ -59,28 +59,13 @@ int main(int argc, char** argv)
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialize...");
 
-	// create vertex buffer
-	GLuint vbo = 0;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	//create vertex buffer
+	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
+	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
+	vb->SetAttribute(0, 3, 8 * sizeof(float), 0);
+	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
+	vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float));
 
-	// create vertex array
-	GLuint vao = 0;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	//attribute number, info being sent, N/A, N/A, N/A
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
 	//create material
 	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("Materials/box.mtrl");
@@ -97,6 +82,14 @@ int main(int argc, char** argv)
 	static glm::vec3 defaultPosition = glm::vec3{ 0, 2, 2 };
 	float speed = 3.0f;
 
+	//neu::Transform transforms[] =
+	//{
+	//	{ { 0, 0, 0 }, { 0, 90, 0 } },
+	//	{ { 2, 0, 0 }, { 0, 90, 90 } },
+	//	{ { 0, 2, -2 }, { 45, 90, 0 } },
+	//	{ { -2, 1, 0 }, { 90, 90, 0 } },
+	//};
+
 	bool quit = false;
 	while (!quit)
 	{
@@ -104,7 +97,7 @@ int main(int argc, char** argv)
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
 		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, 0.0f);
-
+		 
 		//add input to move camera
 		if (neu::g_inputSystem.GetKeyState(neu::page_down) == neu::InputSystem::KeyState::Held) cameraPosition.z += speed * neu::g_time.deltaTime;
 		if (neu::g_inputSystem.GetKeyState(neu::page_up) == neu::InputSystem::KeyState::Held) cameraPosition.z -= speed * neu::g_time.deltaTime;
@@ -124,7 +117,7 @@ int main(int argc, char** argv)
 		
 		neu::g_renderer.BeginFrame();
 
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		vb->Draw();
 
 		neu::g_renderer.EndFrame();
 	}
