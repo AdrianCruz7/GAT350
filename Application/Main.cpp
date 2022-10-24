@@ -82,13 +82,12 @@ int main(int argc, char** argv)
 	static glm::vec3 defaultPosition = glm::vec3{ 0, 2, 2 };
 	float speed = 3.0f;
 
-	//neu::Transform transforms[] =
-	//{
-	//	{ { 0, 0, 0 }, { 0, 90, 0 } },
-	//	{ { 2, 0, 0 }, { 0, 90, 90 } },
-	//	{ { 0, 2, -2 }, { 45, 90, 0 } },
-	//	{ { -2, 1, 0 }, { 90, 90, 0 } },
-	//};
+	std::vector<neu::Transform> transforms;
+	for (size_t i = 0; i < 200; i++)
+	{
+		transforms.push_back({ { neu::randomf(-10, 10), neu::randomf(-10, 10), neu::randomf(-10, 10)}, {neu::randomf(360), 90, 0} });
+		
+	}
 
 	bool quit = false;
 	while (!quit)
@@ -96,7 +95,7 @@ int main(int argc, char** argv)
 		neu::Engine::Instance().Update();
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, 0.0f);
+		//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
 		 
 		//add input to move camera
 		if (neu::g_inputSystem.GetKeyState(neu::page_down) == neu::InputSystem::KeyState::Held) cameraPosition.z += speed * neu::g_time.deltaTime;
@@ -108,16 +107,19 @@ int main(int argc, char** argv)
 		if (neu::g_inputSystem.GetKeyState(neu::key_enter) == neu::InputSystem::KeyState::Pressed) cameraPosition = defaultPosition;
 
 		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
-		//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
-		glm::mat4 mvp = projection * view * model;
-		material->GetProgram()->SetUniform("mvp", mvp);
-
-		//ask about setuniform for tint
-		//can't find scale or tint
+		
+		//model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, 0.0f);
 		
 		neu::g_renderer.BeginFrame();
 
-		vb->Draw();
+		for (size_t i = 0; i < transforms.size(); i++)
+		{
+			transforms[i].rotation += glm::vec3{ 0, 90 * neu::g_time.deltaTime, 0 };
+			glm::mat4 mvp = projection * view * (glm::mat4)transforms[i];
+			material->GetProgram()->SetUniform("mvp", mvp);
+
+			vb->Draw();
+		}
 
 		neu::g_renderer.EndFrame();
 	}
