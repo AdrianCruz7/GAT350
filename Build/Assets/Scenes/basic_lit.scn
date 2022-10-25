@@ -30,6 +30,38 @@
     },
     {
       "type": "Actor",
+      "name": "Light",
+      "transform": {
+        "position": [
+          5,
+          5,
+          5
+
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "ambient": [
+            0,
+            0,
+            0
+          ],
+          "diffuse": [
+            1,
+            1,
+            1
+          ],
+          "specular": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
       "name": "Camera",
       "transform": {
         "position": [
