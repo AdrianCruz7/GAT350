@@ -1,6 +1,6 @@
 {
   "program": "shaders/basic.prog",
-  "texture": "textures/llama.jpg",
+  "texture": "textures/ogre_diffuse.bmp",
   "ambient": [
     1,
     1,
@@ -17,4 +17,4 @@
     1
   ],
   "shininess": 100
-} 
+}
