@@ -60,11 +60,11 @@ int main(int argc, char** argv)
 	LOG("Window Initialize...");
 
 	//create vertex buffer
-	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
-	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
-	vb->SetAttribute(0, 3, 8 * sizeof(float), 0);
-	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
-	vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float));
+	//std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
+	//vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
+	//vb->SetAttribute(0, 3, 8 * sizeof(float), 0);
+	//vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
+	//vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float));
 
 
 	//create material
@@ -82,12 +82,16 @@ int main(int argc, char** argv)
 	static glm::vec3 defaultPosition = glm::vec3{ 0, 2, 2 };
 	float speed = 3.0f;
 
+
 	std::vector<neu::Transform> transforms;
 	for (size_t i = 0; i < 200; i++)
 	{
-		transforms.push_back({ { neu::randomf(-10, 10), neu::randomf(-10, 10), neu::randomf(-10, 10)}, {neu::randomf(360), 90, 0} });
+		transforms.push_back({ { neu::randomf(-10, 10), neu::randomf(-10, 10), neu::randomf(-10, 10)}, {0, 90, 0} });
 		
 	}
+
+	//models
+	auto m = neu::g_resources.Get<neu::Model>("Models/ogre.obj");
 
 	bool quit = false;
 	while (!quit)
@@ -118,7 +122,8 @@ int main(int argc, char** argv)
 			glm::mat4 mvp = projection * view * (glm::mat4)transforms[i];
 			material->GetProgram()->SetUniform("mvp", mvp);
 
-			vb->Draw();
+			//vb->Draw();
+			m->m_vertexBuffer.Draw();
 		}
 
 		neu::g_renderer.EndFrame();
@@ -128,3 +133,7 @@ int main(int argc, char** argv)
 
 	return 0;
 }
+
+
+
+

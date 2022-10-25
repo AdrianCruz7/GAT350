@@ -1,6 +1,7 @@
 { 
     "program":"shaders/basic.prog", 
-    "texture":"textures/wood.png", 
+    "texture":"textures/ogre_diffuse.bmp", 
+    
     "ambient":[ 
         1, 
         1, 
