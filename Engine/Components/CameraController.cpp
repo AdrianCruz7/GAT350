@@ -9,13 +9,13 @@ namespace neu
 
 		if (g_inputSystem.GetKeyState(key_left) == InputSystem::KeyState::Held)
 		{
-			m_owner->m_transform.position.x += speed * g_time.deltaTime;
+			m_owner->m_transform.position.x -= speed * g_time.deltaTime;
 			std::cout << "test" << std::endl;
 		}
 
 		if (g_inputSystem.GetKeyState(key_right) == InputSystem::KeyState::Held)
 		{
-			m_owner->m_transform.position.x -= speed * g_time.deltaTime;
+			m_owner->m_transform.position.x += speed * g_time.deltaTime;
 			std::cout << "test" << std::endl;
 		}
 
@@ -33,13 +33,13 @@ namespace neu
 
 		if (g_inputSystem.GetKeyState(neu::page_down) == InputSystem::KeyState::Held)
 		{
-			m_owner->m_transform.position.z -= speed * neu::g_time.deltaTime;
+			m_owner->m_transform.position.z += speed * neu::g_time.deltaTime;
 			std::cout << "test" << std::endl;
 		}
 
 		if (g_inputSystem.GetKeyState(neu::page_up) == InputSystem::KeyState::Held)
 		{
-			m_owner->m_transform.position.z += speed * neu::g_time.deltaTime;
+			m_owner->m_transform.position.z -= speed * neu::g_time.deltaTime;
 			std::cout << "test" << std::endl;
 		}
 	}
