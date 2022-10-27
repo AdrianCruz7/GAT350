@@ -1,6 +1,6 @@
 #pragma once 
 #include "Renderer.h" 
-#include "VertexBuffer.h" 
+#include "VertexBuffer.h"
 #include "Math/MathUtils.h" 
 
 #include <assimp/Importer.hpp> 

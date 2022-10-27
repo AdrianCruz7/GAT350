@@ -60,7 +60,6 @@ namespace neu
         }
 
         // create vertex buffer and attributes 
-
         m_vertexBuffer.CreateVertexBuffer((GLsizei)(sizeof(vertex_t) * vertices.size()), (GLsizei)vertices.size(), vertices.data());
         m_vertexBuffer.SetAttribute(0, 3, sizeof(vertex_t), 0);
         m_vertexBuffer.SetAttribute(1, 2, sizeof(vertex_t), offsetof(vertex_t, texcoord));
