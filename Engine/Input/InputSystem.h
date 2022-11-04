@@ -63,6 +63,11 @@ namespace neu
 	extern const uint32_t page_up;
 	extern const uint32_t page_down;
 
+	extern const uint32_t key_w;
+	extern const uint32_t key_a;
+	extern const uint32_t key_s;
+	extern const uint32_t key_d;
+
 	extern const uint32_t key_space;
 	extern const uint32_t key_escape;
 	extern const uint32_t key_enter;

@@ -1,0 +1,15 @@
+{
+  "program": "shaders/asdf_phong.prog",
+  "textures": 
+  [
+    "textures/lava.png",
+    "textures/lava-specular.png",
+    "textures/lava-emissive.png"
+  ], 
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 16
+}

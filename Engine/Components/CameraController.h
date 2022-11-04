@@ -15,5 +15,6 @@ namespace neu
 
 	private:
 		float speed = 0;
+		float cameraSpeed = 30;
 	};
 }

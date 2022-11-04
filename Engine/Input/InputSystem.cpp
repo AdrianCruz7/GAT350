@@ -11,6 +11,11 @@ namespace neu
 	const uint32_t page_up = SDL_SCANCODE_PAGEUP;
 	const uint32_t page_down = SDL_SCANCODE_PAGEDOWN;
 
+	const uint32_t key_w = SDL_SCANCODE_W;
+	const uint32_t key_a = SDL_SCANCODE_A;
+	const uint32_t key_s = SDL_SCANCODE_S;
+	const uint32_t key_d = SDL_SCANCODE_D;
+
 	const uint32_t key_space = SDL_SCANCODE_SPACE;
 	const uint32_t key_escape = SDL_SCANCODE_ESCAPE;
 	const uint32_t key_enter = SDL_SCANCODE_RETURN;

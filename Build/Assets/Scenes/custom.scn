@@ -1,0 +1,165 @@
+{
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "Ogre",
+      "transform": {
+        "position": [
+          -1,
+          -0.5,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cube.obj",
+          "material_name": "Materials/ogre.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Spot",
+      "transform": {
+        "position": [
+          1,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          145,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/spot.obj",
+          "material_name": "Materials/spot.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Cottage",
+      "transform": {
+        "position": [
+          -2,
+          -1,
+          -6
+        ],
+        "scale": [
+          0.2,
+          0.2,
+          0.2
+        ],
+        "rotation": [
+          0,
+          125,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cottage.obj",
+          "material_name": "Materials/cottage.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Grass",
+      "transform": {
+        "position": [
+          0,
+          -1,
+          0
+        ],
+        "scale": [
+          40,
+          40,
+          40
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/plane.obj",
+          "material_name": "Materials/plane.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light",
+      "transform": {
+        "position": [
+          10,
+          -1,
+          5
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Camera",
+      "transform": {
+        "position": [
+          0,
+          0,
+          4
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "CameraComponent",
+          "fov": 45,
+          "near": 0.1,
+          "far": 100
+        },
+        {
+          "type": "CameraController",
+          "speed": 4
+        }
+      ]
+    }
+  ]
+}

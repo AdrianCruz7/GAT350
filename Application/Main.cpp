@@ -61,7 +61,7 @@ int main(int argc, char** argv)
 	LOG("Window Initialize...");
 
 	// load scene 
-	auto scene = neu::g_resources.Get<neu::Scene>("scenes/basic_lit.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/texture.scn");
 
 	bool quit = false;
 
@@ -69,13 +69,23 @@ int main(int argc, char** argv)
 	{
 		neu::Engine::Instance().Update();
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
-		
+
 		auto actor = scene->GetActorFromName("Ogre");
+		//auto actor2 = scene->GetActorFromName("Grass");
+		//auto actor3 = scene->GetActorFromName("Cottage");
+		//auto actor4 = scene->GetActorFromName("Spot");
+
 		if (actor)
 		{
-			actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
+			actor->m_transform.rotation.y += neu::g_time.deltaTime * 45.0f;
 		}
 		
+		//auto material = neu::g_resources.Get<neu::Material>("Materials/multi.mtrl");
+		//if (material)
+		//{
+		//	material->uv_offset.x += neu::g_time.deltaTime;
+		//}
+
 		scene->Update();
 		
 		neu::g_renderer.BeginFrame();
