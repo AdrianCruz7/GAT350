@@ -25,6 +25,15 @@
     <Filter Include="Assets\Shaders">
       <UniqueIdentifier>{521d66a9-7f12-4e1e-b756-f91db400e8ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Shaders\FX">
+      <UniqueIdentifier>{24c979ee-76a8-4c02-92eb-aebf47d73984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders\Unlit">
+      <UniqueIdentifier>{60b4b137-acbe-425f-9cd2-93dee914c66a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders\Lit">
+      <UniqueIdentifier>{e100784e-dc04-4f74-a381-3c7153e24edb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -83,29 +92,8 @@
     <None Include="..\Build\Assets\Materials\spot.mtrl">
       <Filter>Assets\Materials</Filter>
     </None>
-    <None Include="..\Build\Assets\Scenes\texture.scn">
-      <Filter>Assets\Scenes</Filter>
-    </None>
     <None Include="..\Build\Assets\Materials\multi.mtrl">
       <Filter>Assets\Materials</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.frag">
-      <Filter>Assets\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.prog">
-      <Filter>Assets\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.vert">
-      <Filter>Assets\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
-      <Filter>Assets\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
-      <Filter>Assets\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
-      <Filter>Assets\Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\rock.mtrl">
       <Filter>Assets\Materials</Filter>
@@ -118,6 +106,60 @@
     </None>
     <None Include="..\Build\Assets\Shaders\asdf_phong.frag">
       <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\texture.scn">
+      <Filter>Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\test.scn">
+      <Filter>Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.vert">
+      <Filter>Assets\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.frag">
+      <Filter>Assets\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.prog">
+      <Filter>Assets\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.vert">
+      <Filter>Assets\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.frag">
+      <Filter>Assets\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.prog">
+      <Filter>Assets\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\color.vert">
+      <Filter>Assets\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.prog">
+      <Filter>Assets\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\color.prog">
+      <Filter>Assets\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.vert">
+      <Filter>Assets\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.frag">
+      <Filter>Assets\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Unlit\color.frag">
+      <Filter>Assets\Shaders\Unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\FX\toon.prog">
+      <Filter>Assets\Shaders\FX</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\FX\toon.vert">
+      <Filter>Assets\Shaders\FX</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\FX\toon.frag">
+      <Filter>Assets\Shaders\FX</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\squirrel.mtrl">
+      <Filter>Assets\Materials</Filter>
     </None>
   </ItemGroup>
 </Project>

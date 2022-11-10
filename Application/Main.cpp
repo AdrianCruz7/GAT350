@@ -59,32 +59,39 @@ int main(int argc, char** argv)
 	//window
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
 	LOG("Window Initialize...");
+	neu::g_gui.Initialize(neu::g_renderer);
 
 	// load scene 
-	auto scene = neu::g_resources.Get<neu::Scene>("scenes/texture.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/test.scn");
 
+	glm::vec3 pos{ 0, 0, 0 };
 	bool quit = false;
-
 	while (!quit)
 	{
 		neu::Engine::Instance().Update();
+		neu::g_gui.BeginFrame(neu::g_renderer);
+
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		auto actor = scene->GetActorFromName("Ogre");
-		//auto actor2 = scene->GetActorFromName("Grass");
-		//auto actor3 = scene->GetActorFromName("Cottage");
-		//auto actor4 = scene->GetActorFromName("Spot");
 
-		if (actor)
-		{
-			actor->m_transform.rotation.y += neu::g_time.deltaTime * 45.0f;
-		}
-		
-		//auto material = neu::g_resources.Get<neu::Material>("Materials/multi.mtrl");
-		//if (material)
+		auto actor = scene->GetActorFromName("Ogre");
+
+		//if (actor)
 		//{
-		//	material->uv_offset.x += neu::g_time.deltaTime;
+		//	actor->m_transform.rotation.y += neu::g_time.deltaTime * 45.0f;
 		//}
+
+		auto actor1 = scene->GetActorFromName("Light");
+		if (actor1)
+		{
+			// move light using sin wave
+			actor1->m_transform.position = pos;
+		}
+
+		ImGui::Begin("Hello");
+		ImGui::Button("Press Me!");
+		ImGui::SliderFloat3("Position", &pos[0], -50, 50);
+		ImGui::End();
 
 		scene->Update();
 		
@@ -92,7 +99,10 @@ int main(int argc, char** argv)
 
 		scene->Draw(neu::g_renderer);
 
+		neu::g_gui.Draw();
+
 		neu::g_renderer.EndFrame();
+		neu::g_gui.EndFrame();
 	}
 
 	scene->RemoveAll();

@@ -18,6 +18,7 @@ namespace neu
 		Scene(Game* game) : m_game{ game } {}
 		Scene(const Scene& other) {}
 		~Scene() = default;
+
 		virtual bool Create(std::string name, ...) override;
 
 		CLASS_DECLARATION(Scene)
